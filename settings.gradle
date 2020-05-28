@@ -1,0 +1,5 @@
+rootProject.name='Luggage Scanner'
+include ':app'
+
+include ':HelloAR-U3D'
+project(':HelloAR-U3D').projectDir=new File('app/libs/HelloAR-U3D')
