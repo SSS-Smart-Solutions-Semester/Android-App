@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Luggage Scanner</string>
+    <string name="ar_button">Measure your bag</string>
 </resources>

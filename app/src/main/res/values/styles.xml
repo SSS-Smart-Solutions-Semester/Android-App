@@ -8,4 +8,9 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="TuiButtons" parent="@android:style/Widget.Material.Light.Button">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="backgroundTint">@color/colorAccent</item>
+    </style>
+
 </resources>
