@@ -1,4 +1,4 @@
-package com.example.luggagescanner;
+package com.example.luggagescanner.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,11 +8,22 @@ import android.view.View;
 import android.widget.Button;
 
 import com.DefaultCompany.HelloARU3D.UnityPlayerActivity;
+import com.example.luggagescanner.ui.onboarding.Onboarding;
+import com.example.luggagescanner.R;
+import com.example.luggagescanner.utils.SharedPrefs;
 
 public class MainActivity extends AppCompatActivity {
+    public static final String SHOW_ONBOARDING = "show_onboarding";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        boolean showOnboarding = SharedPrefs.readBool(this, SHOW_ONBOARDING, true);
+
+        if (showOnboarding) {
+            Intent intent = new Intent(MainActivity.this, Onboarding.class);
+            startActivity(intent);
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
