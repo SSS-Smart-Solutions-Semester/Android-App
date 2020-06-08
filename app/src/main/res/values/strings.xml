@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">Luggage Scanner</string>
     <string name="ar_button">Measure your bag</string>
+    <string name="history_empty">No scanning history yet</string>
+    <string name="history_empty2">Scan your luggage to be sure that your luggage fits the maximum dimensions.</string>
 </resources>
