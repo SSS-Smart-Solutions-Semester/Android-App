@@ -1,22 +1,18 @@
 package com.example.luggagescanner.ui.onboarding;
 
-import android.content.Context;
-import android.content.Intent;
+import android.animation.Animator;
+import android.animation.ValueAnimator;
 import android.os.Bundle;
 
-import com.DefaultCompany.HelloARU3D.UnityPlayerActivity;
 import com.example.luggagescanner.R;
-import com.example.luggagescanner.utils.SharedPrefs;
 import com.google.android.material.tabs.TabLayout;
 
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
+import android.view.animation.AccelerateInterpolator;
 import android.widget.Button;
-import android.widget.Toast;
-
-import static com.example.luggagescanner.ui.MainActivity.SHOW_ONBOARDING;
 
 public class Onboarding extends AppCompatActivity {
     public final static int TOTAL_PAGES = 6;
@@ -32,6 +28,7 @@ public class Onboarding extends AppCompatActivity {
 
         // Setup viewpager with tab layout
         viewPager = findViewById(R.id.view_pager);
+        viewPager.setPageTransformer(true, new DepthPageTransformer());
         viewPager.setAdapter(new SectionsPagerAdapter(getSupportFragmentManager()));
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
@@ -53,6 +50,49 @@ public class Onboarding extends AppCompatActivity {
         });
     }
 
+    private void animatePagerTransition(final boolean forward) {
+
+        ValueAnimator animator = ValueAnimator.ofInt(0, viewPager.getWidth());
+        animator.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                viewPager.endFakeDrag();
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {
+                viewPager.endFakeDrag();
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+            }
+        });
+
+        animator.setInterpolator(new AccelerateInterpolator());
+        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+
+            private int oldDragPosition = 0;
+
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                int dragPosition = (Integer) animation.getAnimatedValue();
+                int dragOffset = dragPosition - oldDragPosition;
+                oldDragPosition = dragPosition;
+                viewPager.fakeDragBy(dragOffset * (forward ? -1 : 1));
+            }
+        });
+
+        animator.setDuration(500);
+        if (viewPager.beginFakeDrag()) {
+            animator.start();
+        }
+    }
+
     public void navigate(View v) {
         int currentPage = viewPager.getCurrentItem();
         int nextPage = currentPage + 1;
@@ -60,7 +100,9 @@ public class Onboarding extends AppCompatActivity {
         if (currentPage + 1 == TOTAL_PAGES)
             finish();
 
-        viewPager.setCurrentItem(nextPage, true);
+        // fake drag
+        animatePagerTransition(true);
+//        viewPager.setCurrentItem(nextPage, true);
     }
 
     public void skip(View v) {
