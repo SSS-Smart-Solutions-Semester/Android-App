@@ -6,11 +6,23 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="fontFamily">@font/tuitype_light</item>
     </style>
 
     <style name="TuiButtons" parent="@android:style/Widget.Material.Light.Button">
         <item name="android:textColor">@android:color/white</item>
         <item name="backgroundTint">@color/colorAccent</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TuiHeader" parent="@android:style/TextAppearance.Material">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">22sp</item>
+    </style>
+
+    <style name="TuiBody" parent="@android:style/TextAppearance.Material">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/textBody</item>
     </style>
 
 </resources>
