@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import static com.example.luggagescanner.ui.MainActivity.SHOW_ONBOARDING;
 
@@ -36,13 +37,6 @@ public class Onboarding extends AppCompatActivity {
         tabs.setupWithViewPager(viewPager);
 
         navButton = findViewById(R.id.button_onboarding);
-        navButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                navigate(v.getContext());
-            }
-        });
-
 
         // change button text based on current page
         viewPager.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
@@ -59,17 +53,17 @@ public class Onboarding extends AppCompatActivity {
         });
     }
 
-    private void navigate(Context ctx) {
+    public void navigate(View v) {
         int currentPage = viewPager.getCurrentItem();
         int nextPage = currentPage + 1;
 
-        if (currentPage + 1 == TOTAL_PAGES) {
-//            SharedPrefs.saveBool(ctx, SHOW_ONBOARDING, false);
-            Intent intent = new Intent(Onboarding.this, UnityPlayerActivity.class);
-            startActivity(intent);
+        if (currentPage + 1 == TOTAL_PAGES)
             finish();
-        }
 
         viewPager.setCurrentItem(nextPage, true);
+    }
+
+    public void skip(View v) {
+        finish();
     }
 }

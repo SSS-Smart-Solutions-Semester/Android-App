@@ -1,5 +1,6 @@
 package com.example.luggagescanner.ui;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -14,6 +15,7 @@ import com.example.luggagescanner.utils.SharedPrefs;
 
 public class MainActivity extends AppCompatActivity {
     public static final String SHOW_ONBOARDING = "show_onboarding";
+    public static final int ONBOARDING_CODE = 123;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (showOnboarding) {
             Intent intent = new Intent(MainActivity.this, Onboarding.class);
-            startActivity(intent);
+            startActivityForResult(intent, ONBOARDING_CODE);
         }
 
         super.onCreate(savedInstanceState);
@@ -35,5 +37,17 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        // Returned to main activity from onboarding screen
+        if (requestCode == ONBOARDING_CODE) {
+            SharedPrefs.saveBool(this, SHOW_ONBOARDING, false);
+            Intent intent = new Intent(MainActivity.this, UnityPlayerActivity.class);
+            startActivity(intent);
+        }
     }
 }
