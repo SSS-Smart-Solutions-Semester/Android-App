@@ -3,7 +3,21 @@
     <string name="button_ar">Measure your bag</string>
     <string name="history_empty">No scanning history yet</string>
     <string name="history_empty2">Scan your luggage to be sure that your luggage fits the maximum dimensions.</string>
+
+    <!-- Onboarding -->
     <string name="title_activity_onboarding">Onboarding</string>
+    <string name="header_1">Find an open space</string>
+    <string name="header_2">Keep the camera stable</string>
+    <string name="header_3">Place the cube</string>
+    <string name="header_4">Measure your luggage with the cube</string>
+    <string name="header_5">Verify if the dimensions are correct</string>
+    <string name="header_6">Check!</string>
+    <string name="body_1">Place your luggage in a bright, open space</string>
+    <string name="body_2">Point the camera in front of the luggage and keep it stable</string>
+    <string name="body_3">Tap on the luggage to place the measuring cube</string>
+    <string name="body_4">Pinch with your fingers to match the cube to the size of the luggage</string>
+    <string name="body_5">Check if the cube is exactly the same size as the luggage by moving the camera around it</string>
+    <string name="body_6">Press the measure button to verify if the size is allowed</string>
     <string name="button_nav_next">Next</string>
     <string name="button_nav_done">Let\'s start</string>
     <string name="button_skip">Skip</string>
