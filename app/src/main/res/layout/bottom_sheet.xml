@@ -8,7 +8,7 @@
     app:behavior_peekHeight="120dp"
     app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
     android:elevation="16dp"
-    android:background="@android:color/background_light">
+    android:background="#FFFFFF">
 
     <Button
         android:id="@+id/button"

@@ -21,4 +21,12 @@
     <string name="button_nav_next">Next</string>
     <string name="button_nav_done">Let\'s start</string>
     <string name="button_skip">Skip</string>
+
+    <!-- List items -->
+    <string name="scan_card_transition_name">scan_card_%1$s</string>
+    <string name="scan_card_date">Scan %1$s</string>
+    <string name="scan_card_measurements">%1$scm x %2$scm x %3$scm</string>
+    <string name="is_allowed_false">Oops… This bag does not fit the dimensions of TUI Fly.</string>
+    <string name="is_allowed_true">Perfect! This bag fits the dimensions of TUI Fly.</string>
+
 </resources>

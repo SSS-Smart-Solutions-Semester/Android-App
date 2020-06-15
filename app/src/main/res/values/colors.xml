@@ -4,7 +4,16 @@
     <color name="colorPrimaryDark">#78b8d4</color>
     <color name="colorAccent">#092a5e</color>
 
-    <color name="textBody">#585858</color>
+    <color name="textBody">#717272</color>
 
     <color name="ripple">#9A9A9A</color>
+
+    <color name="card_bg">#f7f7f7</color>
+
+    <!-- TUI text colors -->
+    <color name="tui_red">#D40E14</color>
+    <color name="tui_blue">#70CBF4</color>
+    <color name="tui_blue_50">#C2E6FB</color>
+    <color name="tui_blue_25">#E2F3FE</color>
+    <color name="tui_dark_blue">#092A5E</color>
 </resources>

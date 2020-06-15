@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.DefaultCompany.HelloARU3D.UnityPlayerActivity;
 import com.example.luggagescanner.ui.onboarding.Onboarding;
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Returned to main activity from onboarding screen
         if (requestCode == ONBOARDING_CODE) {
+//            Toast.makeText(this, "Back to main activity", Toast.LENGTH_LONG).show();
             SharedPrefs.saveBool(this, SHOW_ONBOARDING, false);
             Intent intent = new Intent(MainActivity.this, UnityPlayerActivity.class);
             startActivity(intent);
