@@ -7,6 +7,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/tui_dark_blue</item>
         <item name="fontFamily">@font/tuitype_light</item>
+        <item name="android:windowBackground">@color/card_bg</item>
     </style>
 
     <style name="TuiButtons" parent="@android:style/Widget.Material.Light.Button">

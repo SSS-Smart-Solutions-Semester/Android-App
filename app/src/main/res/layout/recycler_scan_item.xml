@@ -30,7 +30,6 @@
             android:focusable="true"
             android:onClick="@{(view) -> listener.onScanClicked(view, scan)}"
             android:transitionName="@{@string/scan_card_transition_name(scan.id)}"
-            app:cardBackgroundColor="@color/card_bg"
             app:cardElevation="2dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
