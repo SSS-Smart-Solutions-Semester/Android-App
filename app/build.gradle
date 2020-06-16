@@ -25,14 +25,10 @@ android {
         }
     }
 
-    viewBinding {
-        enabled = true
+    buildFeatures {
+        viewBinding true
+        dataBinding true
     }
-
-    dataBinding {
-        enabled true
-    }
-
 }
 
 dependencies {

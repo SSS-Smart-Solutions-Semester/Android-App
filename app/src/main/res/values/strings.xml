@@ -29,4 +29,7 @@
     <string name="is_allowed_false">Oops… This bag does not fit the dimensions of TUI Fly.</string>
     <string name="is_allowed_true">Perfect! This bag fits the dimensions of TUI Fly.</string>
 
+    <!-- scan item menu -->
+    <string name="menu_delete">Delete</string>
+
 </resources>

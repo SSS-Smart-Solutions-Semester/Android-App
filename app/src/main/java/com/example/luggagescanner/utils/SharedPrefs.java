@@ -18,4 +18,11 @@ public class SharedPrefs {
         editor.putBoolean(preference, value);
         editor.apply();
     }
+
+    public static void clear(Context ctx) {
+        SharedPreferences sharedPref = ctx.getSharedPreferences(PREFERENCES_FILE, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.clear();
+        editor.commit();
+    }
 }

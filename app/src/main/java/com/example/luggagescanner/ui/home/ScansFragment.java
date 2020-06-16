@@ -9,15 +9,11 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.fragment.NavHostFragment;
 
-import com.example.luggagescanner.R;
 import com.example.luggagescanner.data.Scan;
 import com.example.luggagescanner.databinding.FragmentScansBinding;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class ScansFragment extends Fragment implements ScanAdapter.ScanAdapterListener {
     private FragmentScansBinding binding;
@@ -50,7 +46,6 @@ public class ScansFragment extends Fragment implements ScanAdapter.ScanAdapterLi
 
     @Override
     public void onScanClicked(View cardView, Scan scan) {
-        System.out.println();
         Toast.makeText(cardView.getContext(), "Clicked scan with height: " + scan.getHeight(), Toast.LENGTH_LONG).show();
     }
 }
