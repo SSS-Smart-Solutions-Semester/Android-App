@@ -16,19 +16,19 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.luggagescanner.R;
 import com.example.luggagescanner.data.Scan;
-import com.example.luggagescanner.databinding.FragmentScansBinding;
+import com.example.luggagescanner.databinding.FragmentHomeBinding;
 
 import java.util.Arrays;
 
-public class ScansFragment extends Fragment implements ScanAdapter.ScanAdapterListener {
-    private FragmentScansBinding binding;
+public class HomeFragment extends Fragment implements ScanAdapter.ScanAdapterListener {
+    private FragmentHomeBinding binding;
     private ScanAdapter adapter;
     private ScanViewModel scanViewModel;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        binding = FragmentScansBinding.inflate(inflater, container, false);
+        binding = FragmentHomeBinding.inflate(inflater, container, false);
         adapter = new ScanAdapter(getActivity(), this);
         scanViewModel = new ViewModelProvider(this).get(ScanViewModel.class);
 
