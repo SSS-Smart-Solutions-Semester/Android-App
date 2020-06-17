@@ -18,6 +18,7 @@ public class ScanAdapter extends ListAdapter<Scan, ScanViewHolder> {
 
     public interface ScanAdapterListener {
         void onScanClicked(View cardView, Scan scan);
+        void onMenuClicked(View cardView, Scan scan);
     }
 
     public ScanAdapter(Context context, ScanAdapterListener listener) {

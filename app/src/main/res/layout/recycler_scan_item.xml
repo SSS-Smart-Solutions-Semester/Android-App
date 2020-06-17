@@ -62,7 +62,8 @@
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toEndOf="@+id/iv_scan"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_chainStyle="packed" />
+                    app:layout_constraintVertical_chainStyle="packed"
+                    tools:text="Scan 07-05-2020 12:30" />
 
                 <TextView
                     android:id="@+id/tv_size"
@@ -78,7 +79,8 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toEndOf="@+id/iv_scan"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_date" />
+                    app:layout_constraintTop_toBottomOf="@+id/tv_date"
+                    tools:text="55cm x 35cm x 20cm" />
 
                 <TextView
                     android:id="@+id/tv_allowed"
@@ -95,7 +97,8 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toEndOf="@+id/iv_scan"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_size" />
+                    app:layout_constraintTop_toBottomOf="@+id/tv_size"
+                    tools:text="Perfect! This bag fits the dimensions of TUI Fly." />
 
                 <ImageButton
                     android:id="@+id/menuIcon"
@@ -105,6 +108,7 @@
                     android:layout_marginEnd="8dp"
                     android:background="?attr/actionBarItemBackground"
                     android:tint="@color/textBody"
+                    android:onClick="@{(view) -> listener.onMenuClicked(view, scan)}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/ic_more_vert_black_24dp" />
