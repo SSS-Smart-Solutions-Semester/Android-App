@@ -76,6 +76,7 @@ public class HomeFragment extends Fragment implements ScanAdapter.ScanAdapterLis
         popup.setGravity(Gravity.END);
 
         popup.setOnMenuItemClickListener(item -> {
+            scanViewModel.delete(scan);
             Toast.makeText(cardView.getContext(), "You clicked: " + item.getTitle(), Toast.LENGTH_LONG).show();
             return true;
         });

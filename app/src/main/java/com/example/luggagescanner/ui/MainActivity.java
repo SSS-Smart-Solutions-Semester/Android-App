@@ -1,10 +1,14 @@
 package com.example.luggagescanner.ui;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.AttributeSet;
+import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -34,8 +38,7 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        Button button = findViewById(R.id.button);
-        button.setOnClickListener(v -> {
+        binding.bottomSheet.button.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, UnityPlayerActivity.class);
             startActivity(intent);
         });

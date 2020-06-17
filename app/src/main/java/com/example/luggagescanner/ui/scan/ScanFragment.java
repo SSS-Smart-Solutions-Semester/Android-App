@@ -1,15 +1,11 @@
 package com.example.luggagescanner.ui.scan;
 
-import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AnimationUtils;
-import android.view.animation.Interpolator;
 
-import androidx.annotation.AttrRes;
 import androidx.annotation.IdRes;
 import androidx.fragment.app.Fragment;
 import androidx.annotation.Nullable;
@@ -79,16 +75,5 @@ public class ScanFragment extends Fragment {
         transition.setDrawingViewId(drawingViewId);
 
         return transition;
-    }
-
-    private int[] intToIntArray(int value) {
-        String temp = Integer.toString(value);
-        int[] arr = new int[temp.length()];
-        for (int i = 0; i < temp.length(); i++)
-        {
-            arr[i] = temp.charAt(i) - '0';
-        }
-
-        return arr;
     }
 }

@@ -9,18 +9,18 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.example.luggagescanner.data.Scan;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class ScanViewModel extends AndroidViewModel {
     private final MutableLiveData<Scan> selected = new MutableLiveData<Scan>();
 //    private LiveData<List<Scan>> scans;
-    private List<Scan> scans = Arrays.asList(
-            new Scan(55, 35, 20),
-            new Scan(65, 45, 20),
-            new Scan(23, 10, 10),
-            new Scan(26, 26, 14)
-    );
+    private List<Scan> scans = new ArrayList<>(Arrays.asList(
+        new Scan(55, 35, 20),
+        new Scan(65, 45, 20),
+        new Scan(23, 10, 10),
+        new Scan(26, 26, 14)));
 
     public ScanViewModel(@NonNull Application application) {
         super(application);
@@ -44,6 +44,6 @@ public class ScanViewModel extends AndroidViewModel {
     }
 
     public void delete(Scan scan) {
-        // TODO delete
+        this.scans.remove(scan);
     }
 }
