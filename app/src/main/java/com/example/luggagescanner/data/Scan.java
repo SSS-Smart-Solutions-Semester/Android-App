@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
 
 public class Scan {
+    private static int count = 0;
     private int id;
     private int length;
     private int width;
@@ -18,6 +19,7 @@ public class Scan {
         this.height = h;
 
         this.isAllowed = true;
+        this.id = count++;
     }
 
     public int getHeight() {
@@ -37,7 +39,7 @@ public class Scan {
     }
 
     public int getId() {
-        return 10;
+        return this.id;
     }
 
     public String getDate() {
@@ -50,8 +52,7 @@ public class Scan {
                 @Override
                 public boolean areItemsTheSame(@NonNull Scan oldItem, @NonNull Scan newItem) {
                     // TODO return are items same
-                    return false;
-//                    return oldItem.getId() == newItem.getId();
+                    return oldItem.getId() == newItem.getId();
                 }
 
                 @SuppressLint("DiffUtilEquals")

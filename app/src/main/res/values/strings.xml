@@ -23,7 +23,6 @@
     <string name="button_skip">Skip</string>
 
     <!-- List items -->
-    <string name="scan_card_transition_name">scan_card_%1$s</string>
     <string name="scan_card_date">Scan %1$s</string>
     <string name="scan_card_measurements">%1$scm x %2$scm x %3$scm</string>
     <string name="is_allowed_false">Oops… This bag does not fit the dimensions of TUI Fly.</string>
@@ -31,5 +30,11 @@
 
     <!-- scan item menu -->
     <string name="menu_delete">Delete</string>
+
+    <!-- scan detail -->
+    <string name="scan_detail_cm">%1$s cm</string>
+    <string name="length">Length</string>
+    <string name="height">Height</string>
+    <string name="width">Width</string>
 
 </resources>

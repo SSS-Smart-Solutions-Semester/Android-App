@@ -8,7 +8,7 @@
 
     <color name="ripple">#9A9A9A</color>
 
-    <color name="card_bg">#f7f7f7</color>
+    <color name="applicationBackground">#f7f7f7</color>
 
     <!-- TUI text colors -->
     <color name="tui_red">#D40E14</color>

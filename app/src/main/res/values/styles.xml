@@ -7,7 +7,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/tui_dark_blue</item>
         <item name="fontFamily">@font/tuitype_light</item>
-        <item name="android:windowBackground">@color/card_bg</item>
+        <item name="android:windowBackground">@color/applicationBackground</item>
     </style>
 
     <style name="TuiButtons" parent="@android:style/Widget.Material.Light.Button">
@@ -43,6 +43,12 @@
     <style name="TuiBody" parent="@android:style/TextAppearance.Material">
         <item name="android:textSize">18sp</item>
         <item name="android:textColor">@color/textBody</item>
+    </style>
+
+    <style name="TuiCapitalized" parent="@android:style/TextAppearance.Material">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/textBody</item>
+        <item name="android:textAllCaps">true</item>
     </style>
 
     <style name="AppTheme.NoActionBar">

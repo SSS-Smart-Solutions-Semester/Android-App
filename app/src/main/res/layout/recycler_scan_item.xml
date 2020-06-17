@@ -29,7 +29,6 @@
             android:clickable="true"
             android:focusable="true"
             android:onClick="@{(view) -> listener.onScanClicked(view, scan)}"
-            android:transitionName="@{@string/scan_card_transition_name(scan.id)}"
             app:cardElevation="2dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -73,7 +72,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="16dp"
                     android:maxLines="1"
-                    android:text="@{@string/scan_card_measurements(scan.height, scan.width, scan.length)}"
+                    android:text="@{@string/scan_card_measurements(scan.height, scan.length, scan.width)}"
                     android:textAppearance="@style/TuiHeader"
                     app:layout_constraintBottom_toTopOf="@+id/tv_allowed"
                     app:layout_constraintEnd_toEndOf="parent"
