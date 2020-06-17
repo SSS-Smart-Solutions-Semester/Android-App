@@ -22,6 +22,7 @@ import com.example.luggagescanner.data.Scan;
 import com.example.luggagescanner.databinding.FragmentHomeBinding;
 
 import com.google.android.material.transition.Hold;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.util.List;
 
@@ -84,8 +85,16 @@ public class HomeFragment extends Fragment implements ScanAdapter.ScanAdapterLis
         popup.setGravity(Gravity.END);
 
         popup.setOnMenuItemClickListener(item -> {
-            scanViewModel.delete(scan);
-            Toast.makeText(cardView.getContext(), "You clicked: " + item.getTitle(), Toast.LENGTH_LONG).show();
+            if (getResources().getString(R.string.menu_delete).equals((String) item.getTitle())) {
+
+                new MaterialAlertDialogBuilder(cardView.getContext())
+                        .setTitle(R.string.dialog_title)
+                        .setMessage(R.string.dialog_message)
+                        .setNegativeButton(R.string.dialog_cancel, (dialog, which) -> { })
+                        .setPositiveButton(R.string.dialog_confirm, (dialog, which) -> scanViewModel.delete(scan))
+                        .show();
+            }
+
             return true;
         });
 
