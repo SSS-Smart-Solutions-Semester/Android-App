@@ -10,6 +10,7 @@ import androidx.navigation.Navigation;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.DefaultCompany.HelloARU3D.ARCore;
 import com.DefaultCompany.HelloARU3D.UnityPlayerActivity;
 import com.example.luggagescanner.databinding.ActivityMainBinding;
 import com.example.luggagescanner.ui.onboarding.Onboarding;
@@ -68,7 +69,7 @@ public class MainActivity extends AppCompatActivity implements NavController.OnD
     private void setBottomSheetForHome() {
         binding.bottomSheet.button.setText(R.string.button_ar);
         binding.bottomSheet.button.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, UnityPlayerActivity.class);
+            Intent intent = new Intent(MainActivity.this, ARCore.class);
             startActivity(intent);
         });
     }
