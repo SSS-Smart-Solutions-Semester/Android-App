@@ -13,12 +13,12 @@ public class Scan {
     private int height;
     private boolean isAllowed;
 
-    public Scan(int l, int w, int h) {
+    public Scan(int h, int l, int w) {
+        this.height = h;
         this.length = l;
         this.width = w;
-        this.height = h;
 
-        this.isAllowed = true;
+        this.isAllowed = (h <= 55 && l <= 40 && w <= 20);
         this.id = count++;
     }
 
