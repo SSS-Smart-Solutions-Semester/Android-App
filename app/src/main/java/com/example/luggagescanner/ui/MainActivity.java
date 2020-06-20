@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements NavController.OnD
         // Returned to main activity from onboarding screen
         if (requestCode == ONBOARDING_CODE) {
             SharedPrefs.saveBool(this, SHOW_ONBOARDING, false);
-            Intent intent = new Intent(MainActivity.this, UnityPlayerActivity.class);
+            Intent intent = new Intent(MainActivity.this, ARCore.class);
             startActivity(intent);
         }
     }
