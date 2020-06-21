@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.PopupMenu;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,20 +17,17 @@ import androidx.navigation.Navigation;
 import androidx.navigation.fragment.FragmentNavigator;
 
 import com.example.luggagescanner.R;
-import com.example.luggagescanner.data.Scan;
+import com.example.luggagescanner.data.scan.Scan;
 import com.example.luggagescanner.databinding.FragmentHomeBinding;
 
 import com.google.android.material.transition.Hold;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
-import java.util.List;
 
 public class HomeFragment extends Fragment implements ScanAdapter.ScanAdapterListener {
     private FragmentHomeBinding binding;
     private ScanAdapter adapter;
     private ScanViewModel scanViewModel;
-
-    private List<Scan> scans;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -45,10 +41,6 @@ public class HomeFragment extends Fragment implements ScanAdapter.ScanAdapterLis
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         adapter = new ScanAdapter(getActivity(), this);
         scanViewModel = new ViewModelProvider(requireActivity()).get(ScanViewModel.class);
-        scans = scanViewModel.getScans();
-
-        // TODO check is isEmpty() works on LiveData<>
-        setEmptyRecyclerView(scans.isEmpty());
 
         return binding.getRoot();
     }
@@ -63,7 +55,11 @@ public class HomeFragment extends Fragment implements ScanAdapter.ScanAdapterLis
         OneShotPreDrawListener.add(view, this::startPostponedEnterTransition);
 
         binding.recyclerView.setAdapter(adapter);
-        adapter.submitList(scans);
+
+        scanViewModel.getScans().observe(getViewLifecycleOwner(), scans -> {
+            adapter.submitList(scans);
+            setEmptyRecyclerView(scans == null || scans.isEmpty());
+        });
     }
 
     @Override

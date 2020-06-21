@@ -1,34 +1,46 @@
 package com.DefaultCompany.HelloARU3D;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 
 public class ARCore extends UnityPlayerActivity {
-    private static final String TAG = "yeet";
+    public static final String HEIGHT = "height";
+    public static final String LENGTH = "length";
+    public static final String WIDTH = "width";
+
+    private int h, l, w;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d(TAG, "onCreate: ");
+    }
+
+    public void onFinishScan(float h, float l, float w) {
+        this.h = (int) h;
+        this.l = (int) l;
+        this.w = (int) w;
+
+        this.goBack();
+    }
+
+    public void goBack() {
+        Runnable action = () -> {
+            Intent data = new Intent();
+            data.putExtra(HEIGHT, h);
+            data.putExtra(LENGTH, l);
+            data.putExtra(WIDTH, w);
+            setResult(Activity.RESULT_OK, data);
+
+            finish();
+        };
+
+        runOnUiThread(action);
     }
 
     @Override
     protected void onDestroy() {
-        Log.d(TAG, "onDestroy: 1");
         super.onDestroy();
-        Log.d(TAG, "onDestroy: 2");
-    }
-
-    @Override
-    protected void onPause() {
-        Log.d(TAG, "onPause: 1");
-        super.onPause();
-        Log.d(TAG, "onPause: 2");
-    }
-
-    @Override
-    public void onBackPressed() {
-        Log.d(TAG, "onBackPressed: 1");
-        super.onBackPressed();
-        Log.d(TAG, "onBackPressed: 2");
     }
 }

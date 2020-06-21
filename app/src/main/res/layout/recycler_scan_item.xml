@@ -6,7 +6,7 @@
     <data>
         <variable
             name="scan"
-            type="com.example.luggagescanner.data.Scan" />
+            type="com.example.luggagescanner.data.scan.Scan" />
         <variable
             name="listener"
             type="com.example.luggagescanner.ui.home.ScanAdapter.ScanAdapterListener" />

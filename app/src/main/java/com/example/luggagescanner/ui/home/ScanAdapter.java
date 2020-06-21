@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 
 import androidx.recyclerview.widget.ListAdapter;
 
-import com.example.luggagescanner.data.Scan;
+import com.example.luggagescanner.data.scan.Scan;
 import com.example.luggagescanner.databinding.RecyclerScanItemBinding;
 
 public class ScanAdapter extends ListAdapter<Scan, ScanViewHolder> {

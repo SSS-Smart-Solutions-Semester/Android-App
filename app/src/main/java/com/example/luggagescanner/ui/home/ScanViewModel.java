@@ -7,23 +7,21 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.example.luggagescanner.data.Scan;
+import com.example.luggagescanner.data.scan.Scan;
+import com.example.luggagescanner.data.scan.ScanRepository;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class ScanViewModel extends AndroidViewModel {
+    private ScanRepository repository;
+
+    private LiveData<List<Scan>> scans;
     private final MutableLiveData<Scan> selected = new MutableLiveData<Scan>();
-//    private LiveData<List<Scan>> scans;
-    private List<Scan> scans = new ArrayList<>(Arrays.asList(
-        new Scan(55, 35, 20),
-        new Scan(65, 45, 20),
-        new Scan(23, 10, 10),
-        new Scan(26, 26, 14)));
 
     public ScanViewModel(@NonNull Application application) {
         super(application);
+        repository = new ScanRepository(application);
+        scans = repository.getAllScans();
     }
 
     public void setSelected(Scan scan) {
@@ -34,16 +32,16 @@ public class ScanViewModel extends AndroidViewModel {
         return this.selected;
     }
 
-//    public LiveData<List<Scan>> getScans() {
-//        return this.scans;
-//    }
-
-
-    public List<Scan> getScans() {
+    public LiveData<List<Scan>> getScans() {
         return this.scans;
     }
 
+    public void insert(Scan scan) {
+        repository.insert(scan);
+    }
+
+    // TODO test remove
     public void delete(Scan scan) {
-        this.scans.remove(scan);
+        repository.delete(scan);
     }
 }

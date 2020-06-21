@@ -1,25 +1,58 @@
-package com.example.luggagescanner.data;
+package com.example.luggagescanner.data.scan;
 
 import android.annotation.SuppressLint;
+import android.icu.text.SimpleDateFormat;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
+import java.util.Date;
+
+@Entity(tableName = "scan_table")
 public class Scan {
-    private static int count = 0;
+    @PrimaryKey(autoGenerate = true)
     private int id;
     private int length;
     private int width;
     private int height;
     private boolean isAllowed;
+    private String date;
 
-    public Scan(int h, int l, int w) {
-        this.height = h;
-        this.length = l;
-        this.width = w;
+    public Scan(int height, int length, int width) {
+        this.height = height;
+        this.length = length;
+        this.width = width;
 
-        this.isAllowed = (h <= 55 && l <= 40 && w <= 20);
-        this.id = count++;
+        this.isAllowed = (height <= 55 && length <= 40 && width <= 20);
+
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+        this.date = formatter.format(new Date());
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    public void setLength(int length) {
+        this.length = length;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public void setAllowed(boolean allowed) {
+        isAllowed = allowed;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public int getHeight() {
@@ -43,7 +76,7 @@ public class Scan {
     }
 
     public String getDate() {
-        return "07-05-2020 12:30";
+        return this.date;
     }
 
 
