@@ -40,7 +40,6 @@ public class ScanViewModel extends AndroidViewModel {
         repository.insert(scan);
     }
 
-    // TODO test remove
     public void delete(Scan scan) {
         repository.delete(scan);
     }

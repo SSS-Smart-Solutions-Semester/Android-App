@@ -84,7 +84,6 @@ public class Scan {
             new DiffUtil.ItemCallback<Scan>() {
                 @Override
                 public boolean areItemsTheSame(@NonNull Scan oldItem, @NonNull Scan newItem) {
-                    // TODO return are items same
                     return oldItem.getId() == newItem.getId();
                 }
 

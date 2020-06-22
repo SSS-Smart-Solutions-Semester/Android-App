@@ -17,7 +17,6 @@ public class ScanViewHolder extends RecyclerView.ViewHolder {
         this.binding = binding;
     }
 
-    // TODO: bind scan props here
     public void bind(Scan scan) {
         binding.setScan(scan);
         binding.cardView.setTransitionName(SCAN_CARD_TRANSITION_NAME + scan.getId());
